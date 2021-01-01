@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../restaurantapp"
+		},
+		{
+			"path": "../../../../../upTask"
+		},
+		{
+			"path": "../../../../../upTask/taskNative"
+		},
+		{
+			"path": "../../../../../../Desktop/React-Juan/producthuntnext"
+		},
+		{
+			"path": "../../../../../5-tenedores-react-native"
+		}
+	],
+	"settings": {}
+}
