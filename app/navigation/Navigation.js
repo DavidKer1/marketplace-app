@@ -8,17 +8,15 @@ import AccountStack from "./AccountStack";
 import FavoritesStack from "./FavoritesStack";
 import PublishStack from "./PublishStack";
 import SearchStack from "./SearchStack";
+import LocationStack from "./LocationStack";
+
 import {
 	ALTERNATIVE_COLOR,
 	ALTERNATIVE_SECONDARY_COLOR_DARK,
 	SECONDARY_COLOR,
 } from "../utils/constants";
-import {
-	createStackNavigator,
-	HeaderBackButton,
-} from "@react-navigation/stack";
-import States from "../screens/States";
-import Cities from "../screens/Cities";
+import { createStackNavigator } from "@react-navigation/stack";
+import CategoryStack from "./CategoryStack";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -34,7 +32,6 @@ export default function Navigation() {
 							backgroundColor: SECONDARY_COLOR,
 						},
 						headerTintColor: "#fff",
-						headerLeft: LeftComponent,
 					}}
 				>
 					<Stack.Screen
@@ -47,41 +44,18 @@ export default function Navigation() {
 						component={LocationStack}
 						options={{ title: "Ciudad", headerShown: false }}
 					/>
+					<Stack.Screen
+						name="Category"
+						component={CategoryStack}
+						options={{
+							title: "Categoría",
+						}}
+					/>
 				</Stack.Navigator>
 			</NavigationContainer>
 		</>
 	);
 }
-
-const LeftComponent = (props) => (
-	<HeaderBackButton {...props} label="Regresar" tintColor={"#fff"} />
-);
-
-const LocationStack = () => {
-	return (
-		<Stack.Navigator
-			initialRouteName="States"
-			screenOptions={{
-				headerStyle: {
-					backgroundColor: SECONDARY_COLOR,
-				},
-				headerTintColor: "#fff",
-			}}
-			mode="card"
-		>
-			<Stack.Screen
-				name="States"
-				component={States}
-				options={{ title: "Estado", headerLeft: LeftComponent }}
-			/>
-			<Stack.Screen
-				name="Cities"
-				component={Cities}
-				options={({ route }) => ({ title: route.params.estado })}
-			/>
-		</Stack.Navigator>
-	);
-};
 
 const HomeTab = () => {
 	return (

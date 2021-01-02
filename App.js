@@ -9,6 +9,7 @@ import {
 	PRIMARY_COLOR,
 } from "./app/utils/constants";
 import LocationProvider from "./app/context/LocationContext";
+import CategoryProvider from "./app/context/CategoryContext";
 export default function App() {
 	const toastConfig = {
 		success: ({ text1, ...rest }) => (
@@ -50,8 +51,13 @@ export default function App() {
 		<>
 			<FirebaseProvider>
 				<LocationProvider>
-					<Navigation />
-					<Toast config={toastConfig} ref={(ref) => Toast.setRef(ref)} />
+					<CategoryProvider>
+						<Navigation />
+						<Toast
+							config={toastConfig}
+							ref={(ref) => Toast.setRef(ref)}
+						/>
+					</CategoryProvider>
 				</LocationProvider>
 			</FirebaseProvider>
 		</>

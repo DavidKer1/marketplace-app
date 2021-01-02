@@ -28,12 +28,14 @@ export default function PublishStack() {
 						title: "Publicar",
 					}}
 				/>
+			
 			) : (
 				<Stack.Screen
 					name="UserGuest"
 					component={UserGuest}
 					options={{
-						headerTransparent: true
+						headerTransparent: true,
+						title: "Publicar"
 					}}
 				/>
 			)}
