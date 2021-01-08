@@ -4,8 +4,11 @@ export const LocationContext = createContext()
 export default function LocationProvider({children}) {
 
   const [location, setLocation] = useState({})
+  const clearLocation = () => {
+    setLocation({})
+  }
   return (
-    <LocationContext.Provider value={{location, setLocation}}>
+    <LocationContext.Provider value={{location, setLocation, clearLocation}}>
       {children}
     </LocationContext.Provider>
   )

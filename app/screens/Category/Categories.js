@@ -7,7 +7,6 @@ import { FirebaseContext } from "../../context/firebase/FirebaseContext";
 
 export default function Categories() {
 	const { categories } = useContext(FirebaseContext);
-	console.log(categories);
 	return (
 		<View>
 			<FlatList

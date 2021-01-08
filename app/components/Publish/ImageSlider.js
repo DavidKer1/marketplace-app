@@ -5,8 +5,7 @@ import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
 import Toast from "react-native-toast-message";
 import { size, map } from "lodash";
-export default function ImageSlider() {
-	const [imagesSelected, setImagesSelected] = useState([]);
+export default function ImageSlider({setImagesSelected, imagesSelected}) {
 	const imageSelect = async () => {
 		const resultPermissions = await Permissions.askAsync(Permissions.CAMERA);
 		const resultPermisionCamera = resultPermissions.permissions.camera.status;

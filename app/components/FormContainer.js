@@ -15,7 +15,7 @@ export default function FormContainer({ children }) {
 		>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 				<View
-					style={{  paddingVertical: 14, flex: 1 }}
+					style={{  paddingVertical: 14, flex: 1}}
 				>
 					{children}
 				</View>

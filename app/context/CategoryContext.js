@@ -4,7 +4,10 @@ export const CategoryContext = createContext()
 
 export default function CategoryProvider({children}){
   const [category, setCategory] = useState({})
+  const clearCategory = () => {
+    setCategory({})
+  }
   return(
-    <CategoryContext.Provider value={{category, setCategory}}>{children}</CategoryContext.Provider>
+    <CategoryContext.Provider value={{category, setCategory, clearCategory}}>{children}</CategoryContext.Provider>
   )
 }

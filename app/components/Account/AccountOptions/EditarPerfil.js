@@ -22,7 +22,6 @@ const EditarPerfil = forwardRef((props, ref) => {
 
 	const [loading, setLoading] = useState(false);
 	const navigation = useNavigation();
-	const [info, setInfo] = useState({ email: false, account: false });
 
 	const handleSubmit = () => {
 		formik.handleSubmit();
