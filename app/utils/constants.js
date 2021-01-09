@@ -13,3 +13,5 @@ export const ALTERNATIVE_SECONDARY_COLOR = '#1d7c79'
 export const ALTERNATIVE_SECONDARY_COLOR_DARK = '#2d5372'
 export const ERROR_COLOR = '#e74e49'
 export const GRAY_COLOR = '#636363'
+
+export const LIMIT_PUBLICATIONS = 10;
