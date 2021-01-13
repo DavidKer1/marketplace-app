@@ -6,13 +6,21 @@ import { CategoryContext } from "../../context/CategoryContext";
 import { LocationContext } from "../../context/LocationContext";
 import { ALTERNATIVE_SECONDARY_COLOR } from "../../utils/constants";
 
-export default function FormPublish({titulo, descripcion,setDescripcion, setTitulo}) {
+export default function FormPublish({titulo, descripcion,setDescripcion, setTitulo, precio, setPrecio}) {
 	//TODO: Añadir un input para la categoría,
 	const navigation = useNavigation();
 	const { location } = useContext(LocationContext);
 	const { category } = useContext(CategoryContext);
 
-
+	const precioConverter = (e) => {
+		const nuevoPrecio = parseInt(e)
+		if (nuevoPrecio > 0) {
+      setPrecio(nuevoPrecio);
+    }
+    if (!nuevoPrecio) {
+      setPrecio(0);
+    }
+	}
 	return (
 		<>
 			<View>
@@ -40,7 +48,18 @@ export default function FormPublish({titulo, descripcion,setDescripcion, setTitu
 				<Text style={[styles.maximo, styles.divider]}>
 					Máximo 250 caracteres
 				</Text>
-
+				<Input
+					multiline={true}
+					inputStyle={[styles.input, { paddingTop: 20 }]}
+					containerStyle={{ paddingHorizontal: 0 }}
+					inputContainerStyle={styles.divider}
+					errorStyle={{ display: "none" }}
+					keyboardType='numeric'
+					placeholder="Precio"
+					maxLength={10}
+					value={precio.toString()}
+					onChangeText={precioConverter}
+				/>
 				<ListItem
 					containerStyle={[styles.divider, styles.input]}
 					onPress={() => navigation.navigate("Location")}

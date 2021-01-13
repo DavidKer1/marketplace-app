@@ -10,8 +10,10 @@ export default function PublicationsStack() {
       initialRouteName='Publications'
       screenOptions={{
 				headerStyle: {
-					backgroundColor: SECONDARY_COLOR,
+          backgroundColor: SECONDARY_COLOR,
+          
         },
+        headerTintColor: '#fff'
       }}
       
     >

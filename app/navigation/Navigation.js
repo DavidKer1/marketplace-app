@@ -60,7 +60,7 @@ export default function Navigation() {
 const HomeTab = () => {
 	return (
 		<Tab.Navigator
-			initialRouteName="Publish"
+			initialRouteName="Publications"
 			tabBarOptions={{
 				inactiveTintColor: "#646464",
 				activeTintColor: ALTERNATIVE_COLOR,

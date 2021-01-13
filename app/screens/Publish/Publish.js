@@ -8,7 +8,7 @@ import ImageSlider from "../../components/Publish/ImageSlider";
 import { CategoryContext } from "../../context/CategoryContext";
 import { FirebaseContext } from "../../context/firebase/FirebaseContext";
 import { LocationContext } from "../../context/LocationContext";
-import { SECONDARY_COLOR } from "../../utils/constants";
+import {   ALTERNATIVE_COLOR } from "../../utils/constants";
 import Loading from "../../components/Loading";
 import Toast from "react-native-toast-message";
 
@@ -21,10 +21,11 @@ export default function Publish(props) {
 	const [titulo, setTitulo] = useState("");
 	const [descripcion, setDescripcion] = useState("");
 	const [imagesSelected, setImagesSelected] = useState([]);
+	const [precio, setPrecio] = useState(1)
 
 	const [uploading, setUploading] = useState(false);
 	const handleSubmit = () => {
-		if (!titulo || !descripcion || !category || !location) {
+		if (!titulo || !descripcion || !category || !location || !precio) {
 			Toast.show({
 				type: "error",
 				text1: "Todos los campos son obligatorios",
@@ -38,7 +39,9 @@ export default function Publish(props) {
 						title: titulo,
 						location,
 						category,
+						price: precio,
 						images: res,
+						description: descripcion,
 						createdAt: new Date(),
 						createdBy: user.uid,
 					})
@@ -89,6 +92,7 @@ export default function Publish(props) {
 		setTitulo("");
 		setDescripcion("");
 		setImagesSelected([]);
+		setPrecio(0)
 	};
 	if (user === null) return <Loading isVisible={true} text={"Cargando..."} />;
 
@@ -105,17 +109,21 @@ export default function Publish(props) {
 						titulo={titulo}
 						setTitulo={setTitulo}
 						setDescripcion={setDescripcion}
+						setPrecio={setPrecio}
+						precio={precio}
 					/>
 				</FormContainer>
-			</ScrollView>
-			<Button
+				<Button
 				title="Publicar"
 				type={"solid"}
-				style={{ marginBottom: 10 }}
-				buttonStyle={{ backgroundColor: SECONDARY_COLOR }}
+
+				titleStyle={{paddingVertical: 6 }}
+				buttonStyle={{ backgroundColor: ALTERNATIVE_COLOR }}
 				onPress={handleSubmit}
 				disabled={uploading}
 			/>
+			</ScrollView>
+		
 			<Loading isVisible={uploading} text={"publicando"} />
 		</>
 	);
