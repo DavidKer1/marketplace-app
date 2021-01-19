@@ -11,7 +11,6 @@ import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 export default function AccountOptions() {
-	const menuOptions = generateOptions();
 	const navigation = useNavigation();
 	return (
 		<>
@@ -31,24 +30,34 @@ export default function AccountOptions() {
 					<ListItem.Chevron type="font-awesome" name="chevron-right" />
 				</ListItem>
 			</View>
+
 			<View style={styles.container}>
-				{map(menuOptions, (menu, index) => (
-					<ListItem
-						key={index}
-						bottomDivider
-						onPress={menu.onPressFunction}
-					>
-						<Icon
-							name={menu.icon}
-							type={menu.iconType}
-							color={menu.iconColor}
-						/>
-						<ListItem.Content>
-							<ListItem.Title>{menu.title}</ListItem.Title>
-						</ListItem.Content>
-						<ListItem.Chevron type="font-awesome" name="chevron-right" />
-					</ListItem>
-				))}
+				<ListItem bottomDivider>
+					<Icon
+						name={"application"}
+						type={"material-community"}
+						color={ALTERNATIVE_SECONDARY_COLOR}
+					/>
+					<ListItem.Content>
+						<ListItem.Title>Mis anuncios</ListItem.Title>
+					</ListItem.Content>
+					<ListItem.Chevron type="font-awesome" name="chevron-right" />
+				</ListItem>
+
+				<ListItem
+					bottomDivider
+					onPress={() => navigation.navigate("Favorites")}
+				>
+					<Icon
+						name={"heart"}
+						type={"material-community"}
+						color={ALTERNATIVE_COLOR}
+					/>
+					<ListItem.Content>
+						<ListItem.Title>Favoritos</ListItem.Title>
+					</ListItem.Content>
+					<ListItem.Chevron type="font-awesome" name="chevron-right" />
+				</ListItem>
 			</View>
 		</>
 	);
@@ -59,20 +68,3 @@ const styles = StyleSheet.create({
 		marginVertical: 10,
 	},
 });
-
-function generateOptions() {
-	return [
-		{
-			title: "Mis anuncios",
-			icon: "application",
-			iconType: "material-community",
-			iconColor: ALTERNATIVE_SECONDARY_COLOR,
-		},
-		{
-			title: "Favoritos",
-			icon: "heart",
-			iconType: "material-community",
-			iconColor: ALTERNATIVE_COLOR,
-		},
-	];
-}
