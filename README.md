@@ -3,6 +3,9 @@
 ## Overview
 This app is focused for people who want to sell their own products. There are several applications that inspired me, one of them is Segunda Mano app
 
+## Expo Demo
+https://expo.io/@davidker/projects/marketplace-app
+
 ## Screenshots
 ### Main screen
 |     Init Screen    |  Register    |   Login   
